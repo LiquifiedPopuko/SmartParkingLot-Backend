@@ -13,12 +13,15 @@ const historyRoutes = require('./routes/historyRoutes');
 const detectionRoutes = require('./routes/detectionRoutes');
 
 const app = express();
-const port = 8000;
+const port = 8001;
 
 app.use(express.json());
 app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', "Access-Control-Allow-Methods", "Access-Control-Request-Headers"],
   credentials: true,
-  origin: ["http://localhost:5173"],
+  enablePreflight: true
 }));
 
 
